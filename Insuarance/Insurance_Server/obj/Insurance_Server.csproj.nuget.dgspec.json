@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\git\\Insuarance\\Insuarance\\InsuaranceServer\\InsuranceServer.csproj": {}
+    "E:\\git\\Insurance\\Insuarance\\Insurance_Server\\Insurance_Server.csproj": {}
   },
   "projects": {
-    "E:\\git\\Insuarance\\Insuarance\\InsuaranceServer\\InsuranceServer.csproj": {
+    "E:\\git\\Insurance\\Insuarance\\Insurance_Server\\Insurance_Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\git\\Insuarance\\Insuarance\\InsuaranceServer\\InsuranceServer.csproj",
-        "projectName": "InsuranceServer",
-        "projectPath": "E:\\git\\Insuarance\\Insuarance\\InsuaranceServer\\InsuranceServer.csproj",
+        "projectUniqueName": "E:\\git\\Insurance\\Insuarance\\Insurance_Server\\Insurance_Server.csproj",
+        "projectName": "Insurance_Server",
+        "projectPath": "E:\\git\\Insurance\\Insuarance\\Insurance_Server\\Insurance_Server.csproj",
         "packagesPath": "C:\\Users\\DungPC\\.nuget\\packages\\",
-        "outputPath": "E:\\git\\Insuarance\\Insuarance\\InsuaranceServer\\obj\\",
+        "outputPath": "E:\\git\\Insurance\\Insuarance\\Insurance_Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DungPC\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace InsuaranceServer
+namespace Insurance_Server
 {
     public class Startup
     {
@@ -29,7 +29,6 @@ namespace InsuaranceServer
 
             //app.UseMiddleware<nameMiddleware>();
             app.UseRouting();
-
 
             app.UseEndpoints(endpoints =>
             {
