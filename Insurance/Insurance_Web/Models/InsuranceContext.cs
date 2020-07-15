@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Insurance_Web.Models
 {
-    public partial class DbConext : DbContext
+    public partial class InsuranceContext : DbContext
     {
-        public DbConext()
+        public InsuranceContext()
         {
         }
 
-        public DbConext(DbContextOptions<DbConext> options)
+        public InsuranceContext(DbContextOptions<InsuranceContext> options)
             : base(options)
         {
         }
