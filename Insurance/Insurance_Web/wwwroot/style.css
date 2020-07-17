@@ -1599,7 +1599,7 @@ form textarea {
           transition: .3s ease; }
 
 .insurance-item {
-  width: 33.3333%;
+  width: 60%;
   padding: 15px; }
   @media screen and (max-width: 990px) {
     .insurance-item {
@@ -1724,3 +1724,20 @@ form textarea {
         border-right: none; }
   .site-footer .colophon {
     color: #898b8d; }
+
+.vertical-menu a {
+    background-color: #eee;
+    color: black;
+    
+    padding: 12px;
+    text-decoration: none;
+}
+
+    .vertical-menu a:hover {
+        background-color: #ccc;
+    }
+
+    .vertical-menu a.active {
+        background-color: #4CAF50;
+        color: white;
+    }

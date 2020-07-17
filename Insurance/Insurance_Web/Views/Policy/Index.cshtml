@@ -7,16 +7,20 @@
         <div class="breadcrumbs">
             <div class="container">
                 <a asp-controller="home" asp-action="index">Home</a>
-                <span>Policy plans</span>
+                <span>Insurance</span>
             </div>
         </div>
 
         <div class="page">
             <div class="container">
-                <h3 class="entry-title">Choose your own policy plan</h3>
-                <p>Nam posuere purus vitae est sollicitudin placerat. Praesent posuere porta dignissim. Phasellus viverra, urna a convallis tincidunt, ante mi tempor turpis, nec tempor mauris ligula ut sapien. Etiam euismod mi eu ante mollis commodo. Suspendisse porta nisi vitae dui hendrerit, eget ornare orci semper. Phasellus pharetra, erat sit amet rutrum porttitor, est eros consectetur elit, molestie consequat erat tellus in dui. Vestibulum a vehicula sem. Nullam commodo quis purus in volutpat. Integer semper lacus a lorem efficitur auctor curabitur tincidunt ligula non.</p>
+                <h3 class="entry-title">Choose your own insurance plan</h3>
+                <p>
+                    Nam posuere purus vitae est sollicitudin placerat. Praesent posuere porta dignissim. Phasellus viverra, urna a convallis tincidunt, ante mi tempor turpis, nec tempor mauris ligula ut sapien. Etiam euismod mi eu ante mollis commodo.
+                    Suspendisse porta nisi vitae dui hendrerit, eget ornare orci semper. Phasellus pharetra, erat sit amet rutrum porttitor, est eros consectetur elit, molestie consequat erat tellus in dui. Vestibulum a vehicula sem. Nullam commodo
+                    quis purus in volutpat. Integer semper lacus a lorem efficitur auctor curabitur tincidunt ligula non.
+                </p>
 
-                <div class="filter-links filterable-nav">
+                <!-- <div class="filter-links filterable-nav">
                     <select class="mobile-filter">
                         <option value="*">Show all</option>
                         <option value=".skyscraper">skyscraper</option>
@@ -28,47 +32,46 @@
                     <a href="#" class="wow fadeInRight" data-wow-delay=".2s" data-filter=".skyscraper">skyscraper</a>
                     <a href="#" class="wow fadeInRight" data-wow-delay=".4s" data-filter=".shopping-center">shopping-center</a>
                     <a href="#" class="wow fadeInRight" data-wow-delay=".6s" data-filter=".apartment">apartment</a>
-                </div>
+                </div> -->
 
-                <div class="filterable-items">
-                    <div class="insurance-item filterable-item shopping-center">
+                <div class="filterable-items" style="position: relative; height: 700px;">
+                    <div class="insurance-item filterable-item shopping-center" style="position: absolute; left: 0px; top: 0px;">
                         <div class="insurance-content">
-                            <div class="insurance-icon"><i class="icon-sofa"></i></div>
-                            <h3 class="insurance-title">Safe Hourse</h3>
+                            <div class="insurance-icon"><i class="icon-team"></i></div>
+                            <h3 class="insurance-title">Life Insurance</h3>
                             <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
-                            <a href="#" class="button">See details</a>
+                            <a asp-controller="detail" asp-action="index" class="button">See details</a>
                         </div>
                     </div>
 
-
-                    <div class="insurance-item filterable-item skyscraper">
+                    <div class="insurance-item filterable-item skyscraper" style="position: absolute; left: 585px; top: 0px;">
                         <div class="insurance-content">
-                            <div class="insurance-icon"><i class="icon-pool"></i></div>
-                            <h3 class="insurance-title">Happy Holiday</h3>
+                            <div class="insurance-icon"><i class="icon-heart-plus"></i></div>
+                            <h3 class="insurance-title">Medical Insurance</h3>
                             <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
-                            <a href="#" class="button">See details</a>
+                            <a asp-controller="detail" asp-action="index" class="button">See details</a>
                         </div>
                     </div>
 
-                    <div class="insurance-item filterable-item apartment">
+                    <div class="insurance-item filterable-item apartment" style="position: absolute; left: 0px; top: 350px;">
                         <div class="insurance-content">
-                            <div class="insurance-icon"><i class="icon-nurse"></i></div>
-                            <h3 class="insurance-title">Medical 24</h3>
+                            <div class="insurance-icon"><i class="icon-car"></i></div>
+                            <h3 class="insurance-title">Motor insurance</h3>
                             <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
-                            <a href="#" class="button">See details</a>
+                            <a asp-controller="detail" asp-action="index" class="button">See details</a>
                         </div>
                     </div>
 
-                    <div class="insurance-item filterable-item shopping-center">
+                    <div class="insurance-item filterable-item shopping-center" style="position: absolute; left: 585px; top: 350px;">
                         <div class="insurance-content">
-                            <div class="insurance-icon"><i class="icon-weigher"></i></div>
-                            <h3 class="insurance-title">Financial Balance</h3>
+                            <div class="insurance-icon"><i class="icon-home"></i></div>
+                            <h3 class="insurance-title">Home Insurance</h3>
                             <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
-                            <a href="#" class="button">See details</a>
+                            <a asp-controller="detail" asp-action="index" class="button">See details</a>
                         </div>
                     </div>
 
-                    <div class="insurance-item filterable-item apartment">
+                    <!-- <div class="insurance-item filterable-item apartment">
                         <div class="insurance-content">
                             <div class="insurance-icon"><i class="icon-car"></i></div>
                             <h3 class="insurance-title">Car Protect</h3>
@@ -84,15 +87,15 @@
                             <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
                             <a href="#" class="button">See details</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="pagination">
-                    <span class="current">1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                </div>
+                <!-- <div class="pagination">
+                <span class="current">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+            </div> -->
             </div>
-        </div> <!-- .page -->
+        </div>
+        <!-- .page -->
     </main>
-
