@@ -8482,19 +8482,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DungPC\\.nuget\\packages\\": {}
+    "C:\\Users\\DANG TRAN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\git\\Insurance\\Insurance\\Insurance_Web\\Insurance_Web.csproj",
+      "projectUniqueName": "C:\\Users\\DANG TRAN\\OneDrive\\Documents\\GitHub\\Insurance\\Insurance\\Insurance_Web\\Insurance_Web.csproj",
       "projectName": "Insurance_Web",
-      "projectPath": "E:\\git\\Insurance\\Insurance\\Insurance_Web\\Insurance_Web.csproj",
-      "packagesPath": "C:\\Users\\DungPC\\.nuget\\packages\\",
-      "outputPath": "E:\\git\\Insurance\\Insurance\\Insurance_Web\\obj\\",
+      "projectPath": "C:\\Users\\DANG TRAN\\OneDrive\\Documents\\GitHub\\Insurance\\Insurance\\Insurance_Web\\Insurance_Web.csproj",
+      "packagesPath": "C:\\Users\\DANG TRAN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DANG TRAN\\OneDrive\\Documents\\GitHub\\Insurance\\Insurance\\Insurance_Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DungPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DANG TRAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8565,7 +8565,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

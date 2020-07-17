@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Middlewares\" />
+    <Folder Include="wwwroot\sass\pages\" />
   </ItemGroup>
 
   <ItemGroup>
