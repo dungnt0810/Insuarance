@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Insurance_Web.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -12,9 +13,9 @@ namespace Insurance_Web.Controllers
     [Route("account")]
     public class LoginController : Controller
     {
-        private InsuranceContext db;
+        private OnlineInsuranceDBContext db;
 
-        public LoginController(InsuranceContext _db)
+        public LoginController(OnlineInsuranceDBContext _db)
         {
             db = _db;
         }
@@ -31,11 +32,20 @@ namespace Insurance_Web.Controllers
         [Route("login")]
         public IActionResult Login(Account account)
         {
-            Debug.WriteLine(account.Email);
-            Debug.WriteLine(account.Password);
-            if (Check(account.Email, account.Password) != null)
+            var acc = Check(account.Email, account.Password);
+            if (acc != null)
             {
-                return View("welcome");
+                HttpContext.Session.SetString("username", acc.Email);
+                if (acc.isEmployee == true)
+                {
+                    HttpContext.Session.SetString("role", "employee");
+                    return RedirectToAction("index", "home", new { area = "employee" });
+                }
+                else
+                {
+                    HttpContext.Session.SetString("role", "customer");
+                    return View("welcome");
+                }
             }
             else
             {
@@ -46,12 +56,22 @@ namespace Insurance_Web.Controllers
 
         private Account Check(string email, string password)
         {
-            var account = db.Account.SingleOrDefault(a => a.Email.Equals(email));
-            if (account != null)
+            var customer = db.Customer.SingleOrDefault(a => a.Email.Equals(email));
+            var employee = db.Employee.SingleOrDefault(a => a.Email.Equals(email));
+            
+            if (employee != null)
             {
-                if (account.Password == password)
+                if (employee.Password == password)
                 {
-                    Debug.WriteLine("dacheck");
+                    var account = new Account { Email = employee.Email, Password = employee.Password, isEmployee = true };
+                    return account;
+                }
+            }
+            if (customer != null)
+            {
+                if (customer.Password == password)
+                {
+                    var account = new Account { Email = customer.Email, Password = customer.Password, isEmployee = false};
                     return account;
                 }
             }

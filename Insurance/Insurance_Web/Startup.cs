@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Insurance_Web.Middlewares;
 using Insurance_Web.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,9 +28,10 @@ namespace Insurance_Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSession();
 
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<InsuranceContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connectionString));
+            services.AddDbContext<OnlineInsuranceDBContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +42,9 @@ namespace Insurance_Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSession();
+
+            app.UseMiddleware<AccountMiddleware>();
             app.UseRouting();
             app.UseStaticFiles();
 
