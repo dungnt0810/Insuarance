@@ -10,15 +10,17 @@ namespace Insurance_Web.Models
             OrderDetail = new HashSet<OrderDetail>();
         }
 
-        public int IdOrder { get; set; }
+        public int Id { get; set; }
         public decimal Price { get; set; }
         public DateTime TimeStart { get; set; }
         public DateTime TimeEnd { get; set; }
+        public string Fullname { get; set; }
+        public string Phone { get; set; }
         public string Address { get; set; }
         public string Description { get; set; }
         public int IdCustomer { get; set; }
         public int IdPolicy { get; set; }
-        public int IdEmployee { get; set; }
+        public int? IdEmployee { get; set; }
         public bool TypePayment { get; set; }
 
         public virtual Customer IdCustomerNavigation { get; set; }

@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/employee/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <section class="content">
@@ -10,7 +10,7 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">DataTable with default features</h3>
+                    <h3 class="card-title">Orders</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -22,21 +22,21 @@
                                 <th>Decription</th>
                                 <th>Time Start</th>
                                 <th>Time End</th>
-                                <th>Payment</th>
                                 <th>Price</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var order in ViewBag.orders)
                             {
                                 <tr>
-                                    <tr>@order.IdOrder</tr>
-                                    <tr>@order.Address</tr>
-                                    <tr>@order.Decription</tr>
-                                    <tr>@order.TimeStart</tr>
-                                    <tr>@order.TimeEnd</tr>
-                                    <tr>@order.Payment</tr>
-                                    <tr>@order.Price</tr>
+                                    <td>@order.Id</td>
+                                    <td>@order.Address</td>
+                                    <td>@order.Description</td>
+                                    <td>@order.TimeStart</td>
+                                    <td>@order.TimeEnd</td>
+                                    <td>@order.Price</td>
+                                    <td><a asp-area="Admin" asp-controller="Order" asp-action="OrderDetail" asp-route-idOrder="@order.Id">Detail</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -47,8 +47,8 @@
                                 <th>Decription</th>
                                 <th>Time Start</th>
                                 <th>Time End</th>
-                                <th>Payment</th>
                                 <th>Price</th>
+                                <th></th>
                             </tr>
                         </tfoot>
                     </table>

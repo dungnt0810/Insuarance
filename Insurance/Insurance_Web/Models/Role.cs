@@ -10,7 +10,7 @@ namespace Insurance_Web.Models
             Employee = new HashSet<Employee>();
         }
 
-        public int IdRole { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Employee> Employee { get; set; }

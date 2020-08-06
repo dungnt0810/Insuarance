@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Insurance_Web.Middlewares;
 using Insurance_Web.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,11 @@ namespace Insurance_Web
         {
             services.AddControllersWithViews();
             services.AddSession();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+                options.LoginPath = "/admin/login/index";
+                options.LogoutPath = "/admin/login/logout";
+                options.AccessDeniedPath = "/admin/login/accessDenied";
+            });
 
             string connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<OnlineInsuranceDBContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connectionString));
@@ -44,9 +50,11 @@ namespace Insurance_Web
 
             app.UseSession();
 
-            app.UseMiddleware<AccountMiddleware>();
+            //app.UseMiddleware<AccountMiddleware>();
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

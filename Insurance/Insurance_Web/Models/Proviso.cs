@@ -5,7 +5,7 @@ namespace Insurance_Web.Models
 {
     public partial class Proviso
     {
-        public int IdProviso { get; set; }
+        public int Id { get; set; }
         public string Content { get; set; }
         public int IdPolicy { get; set; }
 

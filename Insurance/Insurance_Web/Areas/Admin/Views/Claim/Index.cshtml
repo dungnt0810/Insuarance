@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Claims";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <!-- /.card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Claims</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id Claim</th>
+                                <th>Id Policy</th>
+                                <th>Id Customer</th>
+                                <th>Id Employee</th>
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Created</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var claim in ViewBag.claims)
+                            {
+                                <tr>
+                                    <td>@claim.Id</td>
+                                    <td>@claim.IdPolicy</td>
+                                    <td>@claim.IdCustomer</td>
+                                    <td>@claim.IdEmployee</td>
+                                    <td>@claim.Title</td>
+                                    <td>@claim.Content</td>
+                                    <td>@claim.Created.ToString("yyyy-MM-dd")</td>
+                                    <td>@claim.Price</td>
+                                    <td><input type="checkbox" value="@claim.Status" /></td>
+                                    <td><a asp-area="Admin" asp-controller="Claim" asp-action="Edit" asp-route-idClaim="@claim.Id">Update</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id Claim</th>
+                                <th>Id Policy</th>
+                                <th>Id Customer</th>
+                                <th>Id Employee</th>
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Created</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+

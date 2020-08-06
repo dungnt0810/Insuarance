@@ -12,11 +12,13 @@ namespace Insurance_Web.Models
             Proviso = new HashSet<Proviso>();
         }
 
-        public int IdPolicy { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int UsedTime { get; set; }
         public decimal Price { get; set; }
         public string Image { get; set; }
+        public string Title { get; set; }
+        public string Icon { get; set; }
         public string Detail { get; set; }
 
         public virtual ICollection<ClaimInsurance> ClaimInsurance { get; set; }

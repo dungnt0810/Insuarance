@@ -37,9 +37,6 @@ namespace Insurance_Web.Models
         {
             modelBuilder.Entity<ClaimInsurance>(entity =>
             {
-                entity.HasKey(e => e.IdClaimInsurace)
-                    .HasName("PK_OrderDetailIndemnify");
-
                 entity.Property(e => e.Content)
                     .IsRequired()
                     .HasColumnType("text");
@@ -74,9 +71,6 @@ namespace Insurance_Web.Models
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.HasKey(e => e.IdCustomer)
-                    .HasName("PK_User");
-
                 entity.Property(e => e.Address)
                     .IsRequired()
                     .HasMaxLength(250);
@@ -92,10 +86,6 @@ namespace Insurance_Web.Models
                     .IsRequired()
                     .HasMaxLength(250);
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
                 entity.Property(e => e.IsRemoved).HasColumnName("isRemoved");
 
                 entity.Property(e => e.Password)
@@ -106,33 +96,16 @@ namespace Insurance_Web.Models
                 entity.Property(e => e.Phone)
                     .IsRequired()
                     .HasMaxLength(50);
-
-                entity.Property(e => e.Username)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasKey(e => e.IdEmployee)
-                    .HasName("PK_Admin");
-
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Image)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
                 entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Username)
                     .IsRequired()
                     .HasMaxLength(250)
                     .IsUnicode(false);
@@ -146,15 +119,20 @@ namespace Insurance_Web.Models
 
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.HasKey(e => e.IdOrder);
-
                 entity.Property(e => e.Address)
                     .IsRequired()
                     .HasMaxLength(250);
 
-                entity.Property(e => e.Description)
+                entity.Property(e => e.Description).HasColumnType("text");
+
+                entity.Property(e => e.Fullname)
                     .IsRequired()
-                    .HasColumnType("text");
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Phone)
+                    .IsRequired()
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
 
@@ -171,7 +149,6 @@ namespace Insurance_Web.Models
                 entity.HasOne(d => d.IdEmployeeNavigation)
                     .WithMany(p => p.Order)
                     .HasForeignKey(d => d.IdEmployee)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Order_Employee");
 
                 entity.HasOne(d => d.IdPolicyNavigation)
@@ -183,9 +160,6 @@ namespace Insurance_Web.Models
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
-                entity.HasKey(e => e.IdOd)
-                    .HasName("PK_Payments");
-
                 entity.Property(e => e.Created).HasColumnType("datetime");
 
                 entity.Property(e => e.Payment)
@@ -204,14 +178,11 @@ namespace Insurance_Web.Models
 
             modelBuilder.Entity<Policy>(entity =>
             {
-                entity.HasKey(e => e.IdPolicy)
-                    .HasName("PK_Product");
-
-                entity.Property(e => e.IdPolicy).ValueGeneratedNever();
-
                 entity.Property(e => e.Detail)
                     .IsRequired()
                     .HasColumnType("text");
+
+                entity.Property(e => e.Icon).HasMaxLength(50);
 
                 entity.Property(e => e.Image)
                     .IsRequired()
@@ -223,12 +194,12 @@ namespace Insurance_Web.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.Title).HasColumnType("text");
             });
 
             modelBuilder.Entity<Proviso>(entity =>
             {
-                entity.HasKey(e => e.IdProviso);
-
                 entity.Property(e => e.Content)
                     .IsRequired()
                     .HasColumnType("text");
@@ -242,8 +213,6 @@ namespace Insurance_Web.Models
 
             modelBuilder.Entity<Role>(entity =>
             {
-                entity.HasKey(e => e.IdRole);
-
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(250)

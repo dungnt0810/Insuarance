@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Insurance_Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Insurance_Web.Areas.employee.Controllers
+namespace Insurance_Web.Areas.Admin.Controllers
 {
-    [Area("employee")]
-    [Route("employee/home")]
+    [Area("admin")]
+    [Route("admin/home")]
     public class HomeController : Controller
     {
         private OnlineInsuranceDBContext db;
@@ -21,14 +22,9 @@ namespace Insurance_Web.Areas.employee.Controllers
 
         [Route("")]
         [Route("index")]
+        [Authorize(Roles = "Manager")]
         public IActionResult Index()
         {
-            var username = HttpContext.Session.GetString("username");
-            if (username != null)
-            {
-                var emp = db.Employee.SingleOrDefault(a => a.Email.Equals(username));
-                ViewBag.username = emp.Username;
-            }
             return View();
         }
     }

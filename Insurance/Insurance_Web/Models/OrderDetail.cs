@@ -5,7 +5,7 @@ namespace Insurance_Web.Models
 {
     public partial class OrderDetail
     {
-        public int IdOd { get; set; }
+        public int Id { get; set; }
         public int IdO { get; set; }
         public decimal Price { get; set; }
         public DateTime Created { get; set; }
