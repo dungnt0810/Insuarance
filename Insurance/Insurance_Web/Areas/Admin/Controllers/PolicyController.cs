@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Insurance_Web.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Insurance_Web.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Route("admin/home")]
-    public class HomeController : Controller
+    [Route("admin/policy")]
+    public class PolicyController : Controller
     {
         private OnlineInsuranceDBContext db;
 
-        public HomeController(OnlineInsuranceDBContext _db)
+        public PolicyController(OnlineInsuranceDBContext _db)
         {
             db = _db;
         }
 
         [Route("")]
         [Route("index")]
-        [Authorize(Roles = "Manager")]
-        public IActionResult Index()
+        [Authorize(Roles = "Manager,Employee")]
+        public async Task<IActionResult> Index()
         {
-            ViewBag.emp = HttpContext.User.FindFirst(ClaimTypes.Email).Value;
+            var policies = await db.Policy.ToListAsync();
+            ViewBag.policies = policies;
+            ViewBag.proviso = await db.Proviso.ToListAsync();
             return View();
         }
     }

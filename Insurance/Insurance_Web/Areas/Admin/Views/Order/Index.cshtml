@@ -3,6 +3,8 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+@using Microsoft.AspNetCore.Http;
+@using System.Security.Claims;
 
 <section class="content">
     <div class="row">
@@ -24,6 +26,7 @@
                                 <th>Time Start</th>
                                 <th>Time End</th>
                                 <th>Price</th>
+                                <th>Check</th>
                                 <th>Order</th>
                                 <th>Order Detail</th>
                             </tr>
@@ -31,21 +34,22 @@
                         <tbody>
                             @foreach (var order in ViewBag.orders)
                             {
-                            <tr>
-                                <td>@order.Id</td>
-                                <td>@order.Fullname</td>
-                                <td>@order.Address</td>
-                                <td>@order.Description</td>
-                                <td>@order.TimeStart</td>
-                                <td>@order.TimeEnd</td>
-                                <td>@order.Price</td>
-                                <td>
-                                    <a asp-area="Admin" asp-controller="Order" asp-action="Edit" asp-route-id="@order.Id">Edit</a>
-                                </td>
-                                <td>
-                                    <a asp-area="Admin" asp-controller="OrderDetail" asp-action="Index" asp-route-idOrder="@order.Id">Detail</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>@order.Id</td>
+                                    <td>@order.Fullname</td>
+                                    <td>@order.Address</td>
+                                    <td>@order.Description</td>
+                                    <td>@order.TimeStart</td>
+                                    <td>@order.TimeEnd</td>
+                                    <td>@order.Price</td>
+                                    <td><a class="btn btn-primary @(order.IdEmployee == null ?"" : "disabled" )" asp-area="Admin" asp-controller="Order" asp-action="Check" asp-route-Emp="@ViewBag.emp" asp-route-idOrder="@order.Id" role="button">Check</a></td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Order" asp-action="Edit" asp-route-id="@order.Id">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="OrderDetail" asp-action="Index" asp-route-idOrder="@order.Id">Detail</a>
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                         <tfoot>
@@ -57,6 +61,7 @@
                                 <th>Time Start</th>
                                 <th>Time End</th>
                                 <th>Price</th>
+                                <th>Check</th>
                                 <th>Order</th>
                                 <th>Order Detail</th>
                             </tr>

@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Policy";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <!-- /.card -->
+            <div class="card">
+                <div class="card-header">
+                    <a asp-area="Admin" asp-controller="Claim" asp-action="Index">Claims</a><br />
+                    <a asp-area="Admin" asp-controller="Claim" asp-action="UncheckedClaims">Unchecked Claims</a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id Policy</th>
+                                <th>Name</th>
+                                <th>UsedTime</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Icon</th>
+                                <th>Detail</th>
+                                <th>Proviso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in ViewBag.policies)
+                            {
+                                <tr>
+                                    <td>@p.Id</td>
+                                    <td>@p.Name</td>
+                                    <td>@p.UsedTime</td>
+                                    <td>@p.Price</td>
+                                    <td>@p.Image</td>
+                                    <td>@p.Title</td>
+                                    <td>@p.Icon</td>
+                                    <td>@p.Detail</td>
+                                    <td>
+                                        @foreach (var pr in ViewBag.proviso)
+                                        {
+                                            if (pr.IdPolicy == p.Id)
+                                            {
+                                                <p>@pr.Content</p>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id Policy</th>
+                                <th>Name</th>
+                                <th>UsedTime</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Icon</th>
+                                <th>Detail</th>
+                                <th>Proviso</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

@@ -160,3 +160,4 @@ E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\ChangePassword.cshtml.g.cs
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Edit.cshtml.g.cs
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Add.cshtml.g.cs
+E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Policy\Index.cshtml.g.cs

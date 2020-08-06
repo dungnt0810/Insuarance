@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Insurance_Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Insurance_Web.Areas.Admin.Controllers
 {
@@ -27,6 +29,8 @@ namespace Insurance_Web.Areas.Admin.Controllers
         public IActionResult Index()
         {
             ViewBag.orders = db.Order.ToList();
+            //var cookie = HttpContext.Request.Cookies[".AspNetCore.Cookies"];
+            ViewBag.emp = HttpContext.User.FindFirst(ClaimTypes.Email).Value;
             return View();
         }
 
@@ -42,13 +46,13 @@ namespace Insurance_Web.Areas.Admin.Controllers
         [Route("Edit")]
         [Authorize(Roles = "Manager,Employee")]
         [HttpPost]
-        public IActionResult OrderDetail(Order order)
+        public async Task<IActionResult> Edit(Order order)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var data = db.Order.Find(order.Id);
+                    var data = await db.Order.FindAsync(order.Id);
                     data.Fullname = order.Fullname;
                     data.Address = order.Address;
                     data.Description = order.Description;
@@ -58,7 +62,7 @@ namespace Insurance_Web.Areas.Admin.Controllers
                     data.Price = order.Price;
                     data.TypePayment = order.TypePayment;
                     db.Entry(data).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
                 }
                 return RedirectToAction("Index", "Order");
             }
@@ -70,5 +74,28 @@ namespace Insurance_Web.Areas.Admin.Controllers
             return View("Edit", dataEdit);
         }
 
+
+        [Route("check")]
+        [Authorize(Roles = "Manager,Employee")]
+        public async Task<IActionResult> Check(string emp, int idOrder)
+        {
+            var employee = await db.Employee.SingleOrDefaultAsync(e => e.Email == emp);
+            var order = await db.Order.FindAsync(idOrder);
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    order.IdEmployee = employee.Id;
+                    db.Entry(order).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return RedirectToAction("Index", "Order");
+        }
     }
 }

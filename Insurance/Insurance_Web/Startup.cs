@@ -30,7 +30,7 @@ namespace Insurance_Web
         {
             services.AddControllersWithViews();
             services.AddSession();
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+            services.AddAuthentication("Cookies").AddCookie("Cookies", options => {
                 options.LoginPath = "/admin/login/index";
                 options.LogoutPath = "/admin/login/logout";
                 options.AccessDeniedPath = "/admin/login/accessDenied";
@@ -47,6 +47,7 @@ namespace Insurance_Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             app.UseSession();
 

@@ -44,30 +44,29 @@ namespace Insurance_Web.Areas.Admin.Controllers
         [Route("Edit")]
         [Authorize(Roles = "Manager")]
         [HttpGet]
-        public IActionResult Edit(int idClaim)
+        public async Task<IActionResult> Edit(int idClaim)
         {
-            ClaimInsurance claim = db.ClaimInsurance.Find(idClaim);
+            ClaimInsurance claim = await db.ClaimInsurance.FindAsync(idClaim);
             return View("Edit",claim);
         }
 
         [Route("Edit")]
         [Authorize(Roles = "Manager")]
         [HttpPost]
-        public  IActionResult Edit(ClaimInsurance claim)
+        public  async Task<IActionResult> Edit(ClaimInsurance claim)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var data = db.ClaimInsurance.Find(claim.Id);
+                    var data = await db.ClaimInsurance.FindAsync(claim.Id);
                     data.Title = claim.Title;
                     data.Price = claim.Price;
                     data.Status = claim.Status;
                     data.Content = claim.Content;
                     data.Created = claim.Created;
                     db.Entry(data).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    //db.Update(claim);
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
                 }
                 return RedirectToAction("Index", "Claim");
             }
@@ -75,7 +74,7 @@ namespace Insurance_Web.Areas.Admin.Controllers
             {
                 Debug.WriteLine(e.Message);
             }
-            var dataEdit = db.ClaimInsurance.Find(claim.Id);
+            var dataEdit = await db.ClaimInsurance.FindAsync(claim.Id);
             return View("Edit",dataEdit);
         }
     }
