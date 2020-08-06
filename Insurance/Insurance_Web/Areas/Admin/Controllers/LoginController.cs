@@ -52,7 +52,7 @@ namespace Insurance_Web.Areas.Admin.Controllers
             var account = db.Employee.SingleOrDefault(a => a.Email.Equals(email));
             if (account != null)
             {
-                if (password.Equals(account.Password))
+                if (BCrypt.Net.BCrypt.Verify(password, account.Password))
                 {
                     return account;
                 }

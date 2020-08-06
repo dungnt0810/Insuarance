@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "OrderDetail";
+    ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,27 +19,27 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form role="form" asp-area="Admin" asp-controller="Order" asp-action="OrderDetail">
+                        <form role="form" method="post" asp-area="Admin" asp-controller="OrderDetail" asp-action="Edit">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>IdOrderDetail</label>
-                                        <input type="text" class="form-control" value="@ViewBag.orderDetail.Id" disabled asp-for="Id">
+                                        <input type="text" class="form-control" readonly asp-for="Id">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>IdOrder</label>
-                                        <input type="text" class="form-control" value="@ViewBag.orderDetail.IdO" disabled asp-for="IdO">
+                                        <input type="text" class="form-control" disabled asp-for="IdO">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <label>Price</label>
                                     <div class="input-group">
-                                        <label>Price</label>
-                                        <input type="text" class="form-control" value="@ViewBag.orderDetail.Price" asp-for="Price">
+                                        <input type="text" class="form-control" asp-for="Price">
                                         <div class="input-group-append">
                                             <span class="input-group-text">.000 VND</span>
                                         </div>
@@ -69,11 +69,13 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask value="@ViewBag.orderDetail.Created" asp-for="Created">
+                                            <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask asp-for="Created">
                                         </div>
                                     </div>
-                                    <!-- Date dd/mm/yyyy -->
                                 </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Save Change</button>
                             </div>
                         </form>
                     </div>
@@ -90,6 +92,4 @@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </section>
-
-
 

@@ -18,37 +18,47 @@
                         <thead>
                             <tr>
                                 <th>Id Order</th>
+                                <th>FullName</th>
                                 <th>Address</th>
                                 <th>Decription</th>
                                 <th>Time Start</th>
                                 <th>Time End</th>
                                 <th>Price</th>
-                                <th></th>
+                                <th>Order</th>
+                                <th>Order Detail</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var order in ViewBag.orders)
                             {
-                                <tr>
-                                    <td>@order.Id</td>
-                                    <td>@order.Address</td>
-                                    <td>@order.Description</td>
-                                    <td>@order.TimeStart</td>
-                                    <td>@order.TimeEnd</td>
-                                    <td>@order.Price</td>
-                                    <td><a asp-area="Admin" asp-controller="Order" asp-action="OrderDetail" asp-route-idOrder="@order.Id">Detail</a></td>
-                                </tr>
+                            <tr>
+                                <td>@order.Id</td>
+                                <td>@order.Fullname</td>
+                                <td>@order.Address</td>
+                                <td>@order.Description</td>
+                                <td>@order.TimeStart</td>
+                                <td>@order.TimeEnd</td>
+                                <td>@order.Price</td>
+                                <td>
+                                    <a asp-area="Admin" asp-controller="Order" asp-action="Edit" asp-route-id="@order.Id">Edit</a>
+                                </td>
+                                <td>
+                                    <a asp-area="Admin" asp-controller="OrderDetail" asp-action="Index" asp-route-idOrder="@order.Id">Detail</a>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Id Order</th>
+                                <th>FullName</th>
                                 <th>Address</th>
                                 <th>Decription</th>
                                 <th>Time Start</th>
                                 <th>Time End</th>
                                 <th>Price</th>
-                                <th></th>
+                                <th>Order</th>
+                                <th>Order Detail</th>
                             </tr>
                         </tfoot>
                     </table>

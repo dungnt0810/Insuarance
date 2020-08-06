@@ -31,6 +31,16 @@ namespace Insurance_Web.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("")]
+        [Route("unchecked")]
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> UncheckedClaims()
+        {
+            var claims = await db.ClaimInsurance.Where(c => c.Status == false).ToListAsync();
+            ViewBag.claims = claims;
+            return View("Index");
+        }
+
         [Route("Edit")]
         [Authorize(Roles = "Manager")]
         [HttpGet]

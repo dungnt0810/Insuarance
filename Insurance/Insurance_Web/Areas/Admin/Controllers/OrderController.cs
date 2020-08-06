@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Insurance_Web.Models;
@@ -29,26 +30,45 @@ namespace Insurance_Web.Areas.Admin.Controllers
             return View();
         }
 
-        [Route("")]
-        [Route("OrderDetail")]
+        [Route("Edit")]
         [Authorize(Roles = "Manager,Employee")]
         [HttpGet]
-        public IActionResult OrderDetail(int idOrder)
+        public IActionResult Edit(int id)
         {
-            ViewBag.orderDetail = db.OrderDetail.Find(idOrder);
-            var typePayments = new List<string>() {"Paypal","Crash","Momo","Visa","ZaloPay"};
-            ViewBag.typePayments = typePayments;
-
-            return View();
+            var order = db.Order.Find(id);
+            return View("Edit",order);
         }
 
-        [Route("")]
-        [Route("OrderDetail")]
+        [Route("Edit")]
         [Authorize(Roles = "Manager,Employee")]
         [HttpPost]
-        public IActionResult OrderDetail(OrderDetail orderDetail)
+        public IActionResult OrderDetail(Order order)
         {
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var data = db.Order.Find(order.Id);
+                    data.Fullname = order.Fullname;
+                    data.Address = order.Address;
+                    data.Description = order.Description;
+                    data.Phone = order.Phone;
+                    data.TimeStart = order.TimeStart;
+                    data.TimeEnd = order.TimeEnd;
+                    data.Price = order.Price;
+                    data.TypePayment = order.TypePayment;
+                    db.Entry(data).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Order");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            var dataEdit = db.Order.Find(order.Id);
+            return View("Edit", dataEdit);
         }
+
     }
 }

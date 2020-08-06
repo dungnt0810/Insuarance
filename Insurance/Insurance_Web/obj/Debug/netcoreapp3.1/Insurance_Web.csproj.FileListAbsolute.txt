@@ -149,9 +149,14 @@ E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Login\Index.cshtml.g.cs
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Login\AccessDenied.cshtml.g.cs
-E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Order\OrderDetail.cshtml.g.cs
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Claim\Index.cshtml.g.cs
 E:\git\Insurance\Insurance\Insurance_Web\bin\Debug\netcoreapp3.1\BCrypt.Net-Core.dll
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Insurance_Web.csproj.CoreCompileInputs.cache
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Insurance_Web.MvcApplicationPartsAssemblyInfo.cache
 E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Claim\Edit.cshtml.g.cs
+E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Order\Edit.cshtml.g.cs
+E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OrderDetail\Index.cshtml.g.cs
+E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Index.cshtml.g.cs
+E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\ChangePassword.cshtml.g.cs
+E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Edit.cshtml.g.cs
+E:\git\Insurance\Insurance\Insurance_Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Customer\Add.cshtml.g.cs

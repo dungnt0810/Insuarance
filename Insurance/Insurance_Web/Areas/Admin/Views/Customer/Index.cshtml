@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "Customer";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <!-- /.card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Customers</h3><br />
+                        <a class="btn btn-primary"  role="button" asp-area="Admin" asp-controller="Customer" asp-action="Add">Add Customer</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Fullname</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Gender</th>
+                                    <th>Birthday</th>
+                                    <th>IdCard</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var customer in ViewBag.customers)
+                                {
+                                <tr>
+                                    <td>@customer.Id</td>
+                                    <td>@customer.Fullname</td>
+                                    <td>@customer.Email</td>
+                                    <td>@customer.Phone</td>
+                                    <td>@customer.Address</td>
+                                    <td>@(!customer.Gender ? "Male" : "Female")</td>
+                                    <td>@customer.Birthday.ToString("dd/MM/yyyy")</td>
+                                    <td>@customer.IdCard</td>
+                                    <td><a asp-area="Admin" asp-controller="Customer" asp-action="ChangePassword" asp-route-idCus="@customer.Id">Change Password</a></td>
+                                    <td><a asp-area="Admin" asp-controller="Customer" asp-action="Edit" asp-route-idCus="@customer.Id">Edit Profile</a></td>
+                                </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Fullname</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Gender</th>
+                                    <th>Birthday</th>
+                                    <th>IdCard</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+

@@ -10,7 +10,8 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Claims</h3>
+                    <a asp-area="Admin" asp-controller="Claim" asp-action="Index">Claims</a><br />
+                    <a asp-area="Admin" asp-controller="Claim" asp-action="UncheckedClaims">Unchecked Claims</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -41,7 +42,7 @@
                                     <td>@claim.Content</td>
                                     <td>@claim.Created.ToString("yyyy-MM-dd")</td>
                                     <td>@claim.Price</td>
-                                    <td><input type="checkbox" value="@claim.Status" /></td>
+                                    <td><input type="checkbox" checked="@claim.Status" disabled /></td>
                                     <td><a asp-area="Admin" asp-controller="Claim" asp-action="Edit" asp-route-idClaim="@claim.Id">Update</a></td>
                                 </tr>
                             }
