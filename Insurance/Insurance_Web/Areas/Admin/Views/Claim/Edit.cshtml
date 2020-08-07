@@ -52,6 +52,7 @@
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" class="form-control" asp-for="Title">
+                                        <span asp-validation-for="Title" class="text-danger"></span>
                                     </div>
                                 </div>
 
@@ -64,6 +65,7 @@
                                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                             </div>
                                             <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask asp-for="Created">
+                                            <span asp-validation-for="Created" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <!-- Date dd/mm/yyyy -->
@@ -82,6 +84,7 @@
                                             <div class="input-group-append">
                                                 <span class="input-group-text">.000 VND</span>
                                             </div>
+                                            <span asp-validation-for="Price" class="text-danger"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -91,6 +94,7 @@
                                     <div class="form-group">
                                         <label>Content</label>
                                         <textarea class="form-control" rows="3" asp-for="Content"></textarea>
+                                        <span asp-validation-for="Content" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>

@@ -23,7 +23,7 @@ namespace Insurance_Web.Areas.Admin.Controllers
 
         [Route("")]
         [Route("index")]
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager,Employee")]
         public IActionResult Index()
         {
             ViewBag.emp = HttpContext.User.FindFirst(ClaimTypes.Email).Value;
